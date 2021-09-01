@@ -1,0 +1,24 @@
+{% load i18n %}
+
+{% load bootstrap_tags %}
+
+{% if customer %}
+<ul class="nav main-menu">
+  
+  <li>
+    <a href="{% url 'configuration_site:customer-datasource-list' customer_id=view.kwargs.customer_id %}">
+      {% icon "bar-chart-o" %}<span class="hidden-sm text">{% trans 'Customer Data Sources' %}</span>
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'configuration_site:consumption-list' customer_id=view.kwargs.customer_id %}">
+      {% icon "bar-chart-o" %}<span class="hidden-sm text">{% trans 'Consumption Data Sequences' %}</span>
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'configuration_site:tariff-list' customer_id=view.kwargs.customer_id %}">
+      {% icon "bar-chart-o" %}<span class="hidden-sm text">{% trans 'Tariffs' %}</span>
+    </a>
+  </li>
+</ul>
+{% endif %}
